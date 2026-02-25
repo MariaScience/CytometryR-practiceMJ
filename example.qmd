@@ -6,6 +6,7 @@ format: docx
 This is an example of Quarto document
 
 
+
 ```{r}
 print("Hello")
 ```
