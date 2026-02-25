@@ -29,7 +29,7 @@ getwd()
 install.packages("usethis")
 ```
 
-```{r}
-library(usethis)
-use_github(private = FALSE)
-```
+#```{r}
+#library(usethis)
+#use_github(private = FALSE)
+#```
