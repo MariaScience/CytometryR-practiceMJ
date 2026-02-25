@@ -9,8 +9,27 @@ This is an example of Quarto document
 
 ```{r}
 print("Hello")
-```
-```{r}
+``
+`
+`
+``
+{
+  r
+}
 getwd()
+`
+`
+`
+#Setup to create a repository on GitHub
+`
+``
+{
+  r
+}
+install.packages("usethis")
 ```
 
+```{r}
+library(usethis)
+use_github(private = FALSE)
+```
