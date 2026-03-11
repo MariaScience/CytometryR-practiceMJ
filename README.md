@@ -3,6 +3,5 @@ This is my practice from the Cytometry in R is a free virtual mini-course being 
 
 Participating from Chile
 
-![](/images/WorldwideSignups.png){width=100%}
 
 Click here to go to their [Course Website](https://umgcccfcsr.github.io/CytometryInR)
