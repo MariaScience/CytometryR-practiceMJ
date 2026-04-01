@@ -1,0 +1,67 @@
+## 01 Installing R Packages
+
+# Start installing packages from CRAN
+# Install packages
+
+```{r}
+install.packages("dplyr")
+install.packages("BiocManager")
+``
+`
+`
+``
+{
+  r
+}
+#To call the library to our environment
+library(dplyr)
+library(BiocManager)
+```
+
+```{r}
+sessionInfo()
+```
+
+```{r}
+#Now install specific packages from Bioconductor
+install("PeacoQC")
+```
+
+```{r}
+#To avoid error when installing a github packaging
+install.packages("remotes")
+`
+`
+`
+`
+``
+{
+  r
+}
+library(remotes)
+```
+
+# Christopher Hall - Flow Cytometry Data Analysis in R
+
+```{r}
+install_github("hally166/flowSpectrum")
+```
+
+
+```{r}
+install.packages("tidyverse")
+install.packages("purrr")
+```
+
+```{r}
+library(purrr)
+```
+
+```{r}
+
+```
+
+
+```{r}
+WhatDayDidWriteThis <- "Saturday"
+```
