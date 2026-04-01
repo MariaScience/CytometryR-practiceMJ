@@ -1,0 +1,179 @@
+
+```{r}
+WhatDayDidWriteThis <- "Saturday"
+#To delete a variable can use remove: rm(Saturday)
+```
+
+```{r}
+#Creating a variable that is a "string", use the str() function
+Fluorophores <- "FITC"
+#Indica que caracter es el valor
+str(Fluorophores)
+class(Fluorophores)
+```
+
+
+```{r}
+#Assign number of markers in a panel 29
+Fluorophores <- 29
+str(Fluorophores)
+```
+
+
+```{r}
+#Can add logical (false or true) to an object
+IsPerCPCy5AGoodFluorophore <- FALSE
+str(IsPerCPCy5AGoodFluorophore)
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+Fluorophores <- c("BV4421", "FITC", "PE", "APC")
+str(Fluorophores)
+length(Fluorophores) #check elements number
+Fluorophores[1] #to see the name of the fluorophore in the 1st position
+Fluorophores[3:4] #to see various objects
+```
+
+```{r}
+list.dirs(path = ".", full.names = FALSE, recursive = FALSE)
+list.files() #to observe files in the environment
+```
+
+```{r}
+list.files(path = "data", full.names = FALSE, recursive = FALSE) #give the list of files present, don't tell the full names or follow this recursive argument
+```
+
+```{r}
+#Creating directories
+NewFolderLocation <- file.path("data", "target2") #create file path, will see if is a directory present, will result in creating a target2 folder
+dir.create(path = NewFolderLocation)
+```
+
+```{r}
+file.exists("data")
+list.files(path = "data/target", full.names = "FALSE", recursive = "FALSE")
+```
+
+```{r}
+#To identify a folder location and not use /
+Folderlocation <- file.path("data", "target")
+Folderlocation
+list.files(path = Folderlocation, full.names = FALSE, recursive = FALSE)
+```
+
+```{r}
+#Or if we have a folder with only data, we can create a new folder to add "target"
+Folderlocation <- "data"
+ScreenShotFolder <- file.path(Folderlocation, "target")
+ScreenShotFolder
+list.files(path = ScreenShotFolder, full.names = FALSE, recursive = FALSE)
+```
+
+```{r}
+#List.files() can filter for files, can help to look .fcs or .csv, pattern "NDO50" or .fcs or .csv, look any particular caracter string in the document
+list.files(
+  path = ScreenShotFolder,
+  pattern = "ND050",
+  full.names = FALSE,
+  recursive = FALSE,
+  ignore.case = FALSE,
+  include.dirs = FALSE,
+  no.. = FALSE
+)
+
+```
+
+```{r}
+files <- list.files("data/target", full.names = FALSE, recursive = FALSE)
+files
+```
+
+
+```{r}
+#install.packagers("stringr") CRAN
+library(stringr)
+```
+
+```{r}
+str_detect(files, "INF")
+files
+```
+
+```{r}
+files[str_detect(files, "INF")]
+#keep all true with INF in the documents
+Infants <- files[str_detect(files, "INF")]
+Infants
+```
+
+
+```{r}
+#Conditionals, set 1st the variable and then if is mentioned in the code will respond
+NeedCoffee <- TRUE
+if (NeedCoffee) {
+  print("Take a break")
+  #Could be useful to say if you find a raw flowcytometry file unmix, or if its already unmix continue.
+}
+```
+
+```{r}
+RowNumber <- 299
+2 + RowNumber > 300
+
+if (2 + RowNumber > 3) {
+  print("Stop Iterating")
+}
+```
+
+
+```{r}
+#Using !before it will say the oposite or if create a folder ! with !before, wont exist
+ItsRaining <- TRUE
+if (ItsRaining) {
+  print("Bring an Umbrella")
+}
+!ItsRaining
+if (!ItsRaining) {
+  print("Bring an Umbrella")
+}
+```
+
+
+```{r}
+files_present <- list.files("data", full.names = FALSE, recursive = FALSE)
+files_present
+```
+
+```{r}
+#Create new folder path
+FolderTarget3 <- file.path("data", "target3")
+dir.exists(FolderTarget3) #it says the folder does not exist
+#adding if and the ! will flip and create the folder
+if (!dir.exists(FolderTarget3)) {
+  dir.create(FolderTarget3)
+}
+```
+
+```{r}
+#To copy files get directory information of the files 
+getwd()
+#full.names arguments will help to find the documents and locations path
+files_present <- list.files("data", full.names = TRUE, recursive = FALSE)
+files_present
+
+```
+```{r}
+#add filter for IFN
+Infants <- files_present[str_detect(files_present, "INF")]
+Infants
+#variable infants contain 4 .fcs
+file.copy(from = Infants, to = FolderTarget3) #now the files are copied to the target 3 directory
+```
+
+```{r}
+basename(Infants)
+```

@@ -1,0 +1,71 @@
+# Plug in an external hard-drive or USB into your computer. Manually, create a folder within called "data". Try to programmatically specify the file path to identify the folders and
+
+```{r}
+setwd("D://")
+```
+
+```{r}
+#crear folder en el pendrive
+NewFolder <- file.path("data")
+dir.create(path = NewFolder)
+
+```
+
+```{r}
+#Identify folders and files in the external drive
+list.files(path = "D://", full.names = FALSE, recursive = FALSE)
+
+```
+
+```{r}
+getwd()
+```
+
+```{r}
+list.dirs(
+  path = "C:/Users/maria/R/CytometryR-practiceMJ/data/",
+  full.names = FALSE,
+  recursive = FALSE
+)
+```
+
+```{r}
+list.dirs(path = "D:/", full.names = TRUE, recursive = FALSE)
+```
+
+```{r}
+copyfiles <- list.files(
+  path = "C:/Users/maria/R/CytometryR-practiceMJ/data/target3/",
+  pattern = ".fcs",
+  full.names = TRUE
+)
+copyfiles
+```
+
+```{r}
+file.copy(from = copyfiles, to = "D:/data")
+```
+
+
+# second activity In this session, we used list.files() with the “full.names argument” set to TRUE, as well as the basename() function to identify specific files. But what if you wanted a particular directory. Run list.files() with “full.names argument” and “recursive” argument set to TRUE, and then search online to find an R function that would retrieve the “” individual directory folders.
+
+```{r}
+list.dirs(
+  path = "C:/Users/maria/R/CytometryR-practiceMJ",
+  full.names = TRUE,
+  recursive = TRUE
+)
+```
+
+# R packages often come with internal datasets, that are typically used for use in the help documentation examples. These can be accessed through the use of the system.file() function. See an example below
+
+```{r}
+#Buscar la carpeta interna "extdata" del paquete FlowSOM
+extdata_SOM <- system.file("extdata", package = "FlowSOM")
+extdata_SOM # --> imprime en la consola la ruta completa de esa carpeta
+```
+
+```{r}
+# 2) Listar los archivos .fcs dentro de esa carpeta
+list.files(extdata_SOM, pattern = "\\.fcs$", full.names = TRUE)
+```

@@ -1,0 +1,56 @@
+---
+title: "Quarto Markdown File"
+author: "Maria Leon"
+date: 2026-02-26
+format: html
+toc: TRUE
+toc-expand: true
+---
+# Background
+This file is an example of a Quarto Markdown File. It contains areas of written text
+
+```{r}
+#| eval: TRUE
+# And areas that contain code (or #comments)
+getwd()
+```
+This walk-through, allows to have a better document and create webpages and reports.
+
+
+This *walk-through*, allows to have a **better document** and create ***webpages and reports***.
+To add a [LINK of the course](https://umgcccfcsr.github.io/CytometryInR/course/00_Quarto/)
+
+
+# Getting Started
+
+The initial code would go here
+
+### initial Details
+```{r}
+#| include: TRUE
+print("Hello")
+```
+
+### Second Details
+```{r}
+#| echo: TRUE
+print("Lunch")
+```
+
+# Third Details
+```{r}
+#| code-fold: TRUE
+print("Goodbye")
+```
+
+# Wrap-Up
+
+Our summary would go here
+
+# Adding images
+
+![](/images/cells.jpg)
+
+# Additional Resources
+
+Links to useful resources
